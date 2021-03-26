@@ -2,7 +2,7 @@ import "../App.css"
 
 const StoreInfo = ({ name, address, description, openTime, closeTime, phoneNumber, instagram, facebook }) => {
     return (
-        <div className='StoreInfo'>
+        <div className='store-info'>
             <h2>{name}</h2>
             <h3>{address}</h3>
             <p>{description}</p>
