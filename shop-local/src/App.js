@@ -28,7 +28,7 @@ function App() {
         facebook={"https://www.facebook.com/DONAANTONIAMX"}
       />
       {//This is what creates an item component for each of the elements in the object 'items'}
-        <div className="itemDisplay">
+        <div className="item-display">
           {items.map(item => (
             <Item name={item.name} price={item.price} />
           ))}
