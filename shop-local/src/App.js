@@ -33,7 +33,7 @@ function App() {
             <Item name={item.name} price={item.price} />
           ))}
         </div>
-
+      }
 
 
     </div>
