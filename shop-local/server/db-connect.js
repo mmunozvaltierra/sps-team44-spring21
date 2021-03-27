@@ -1,4 +1,3 @@
-// server/db-connect.js
 // Script to create connection to MySQL Server
 
 require("dotenv").config();

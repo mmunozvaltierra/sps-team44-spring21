@@ -1,4 +1,3 @@
-// server/db-insert.js
 // Script to insert store information to table
 
 const connection = require('./db-connect')
