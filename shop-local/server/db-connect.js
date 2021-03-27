@@ -1,4 +1,5 @@
 // server/db-connect.js
+// Script to create connection to MySQL Server
 
 require("dotenv").config();
 
@@ -19,6 +20,11 @@ connection.connect(function(err) {
     return;
   }
   console.log('Connected as thread id: ' + connection.threadId);
+  connection.query("CREATE DATABASE IF NOT EXISTS shoplocal", function (err, result) {
+    if (err) throw err;
+    console.log("Database created");
+  });
 });
+
 
 module.exports = connection;
