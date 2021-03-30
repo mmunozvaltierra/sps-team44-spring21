@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Item from './components/Item'
 import Header from './components/Header'
 import StoreInfo from './components/Store-info'
+import '../server/db-functions.js'
+
 function App() {
 
   const [items] = useState([
@@ -14,10 +16,15 @@ function App() {
     { name: "Candy", price: "0.5$" },
 
   ])
+  getStore("Dona antonia", function(store){
+    console.log(store);
+    storeName = store.
+  });
   return (
     <div className="app">
 
       <Header />
+      
       <StoreInfo name={"Dona antonia"}
         address={"Pueblito Don Cuco (Paseo de la victoria #2118 5B)"}
         description={"Un pedacito de Brasil en Cd. Juarez 🇧🇷"}
