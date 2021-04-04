@@ -42,3 +42,4 @@ getStore("test1", function(store){
     console.log(store);
 });
 */
+export default getStore

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Item from './components/Item'
 import Header from './components/Header'
 import StoreInfo from './components/Store-info'
-import '../server/db-functions.js'
+import getStore from './server/db-functions.js'
 
 function App() {
 
@@ -18,7 +18,6 @@ function App() {
   ])
   getStore("Dona antonia", function(store){
     console.log(store);
-    storeName = store.
   });
   return (
     <div className="app">
