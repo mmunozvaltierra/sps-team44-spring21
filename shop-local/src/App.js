@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Item from './components/Item'
 import Header from './components/Header'
 import StoreInfo from './components/Store-info'
-import getStore from './server/db-functions.js'
 
 function App() {
 
@@ -16,9 +15,12 @@ function App() {
     { name: "Candy", price: "0.5$" },
 
   ])
-  getStore("Dona antonia", function(store){
-    console.log(store);
-  });
+
+  // Example of requesting a store
+  // fetch("/get-store?storeName=${name}")
+  //  .then(response => console.log(response.name));
+
+
   return (
     <div className="app">
 
