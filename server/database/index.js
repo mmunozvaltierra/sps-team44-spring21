@@ -6,7 +6,7 @@ const mysql = require('mysql');
 const PORT = process.env.PORT || 3001;
 
 const app = express();
-var jsonResponse;
+let jsonResponse = null;
 
 //Configure connection
 let connection = mysql.createConnection({
@@ -52,17 +52,28 @@ function getStore(storeName) {
     var sql = "SELECT * FROM stores WHERE name = ?";
     var query = connection.query(sql, [storeName], function(err, result) {
             if (err) throw err;
-            jsonResponse = result[0];
+            setResponse(result[0]);
         });
-    //console.log(query);
+}
+/** Helper function for getStore(storeName)
+ * @param {JSON} response - JSON object from getStore query response
+ */
+function setResponse(response) {
+    jsonResponse = response;
 }
 
-
+/**
+ * Handler for store information requests
+ * @param req - expectation of a store name to be passed as storeName
+ */
 app.get("/get-store", (req, res) => {
-    getStore(req) // MODIFY TO USE REQ PARAM
+    getStore(req.query.storeName);
     res.json(jsonResponse);
   });
 
+/**
+ * Creates NodeJS server on port 3001
+ */
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
