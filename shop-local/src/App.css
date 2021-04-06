@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: red;
 }
 
 .App-logo {
@@ -7,14 +8,50 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+.container{
+  display: flex;
+  flex-direction: column;
+  
+  background-color: rgb(53, 53, 53);
+}
+
+.container h2{
+  font-size: 30px;
+  color: white;
+  padding: 20px;
+}
+
+.logo{
+  display: flex;
+  justify-content: center;
+  font-family: 'Lobster', cursive;
+}
+
+.logo h1{
+  color: white;
+}
+
+
+
+.description{
+  background-color: antiquewhite;
+  text-align: justify;
+  padding: 20px;
+  font-size: 30px;
+}
+
+.list-store{
+  
+  display: flex;
+  flex-direction: column;
+  font-size: 30px;
+  
 }
 
 .header {
   background-color: #282c34;
+  padding: 20px;
   min-height: 5vh;
   display: flex;
   flex-direction: row;
@@ -24,28 +61,58 @@
   color: white;
 }
 
-.store-info{
+.nav-links{
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-style{
+  color: white;
+  list-style: none;
+}
+
+.store-container{
   background-color: antiquewhite;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
   min-height: 70vh;
+  flex-wrap: wrap;
 
 }
 
-.item{
-  height: 300px;
-  width: 300px;
-  border: 2px solid black;
-  border-radius:30px;
-  background: rgb(133, 238, 233);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+.store-info{
+
+  border-radius: 25px;
+  border: 2px solid #282c34;
+  padding: 20px;
+  
+}
+
+.store-name{
+  width: auto;
+  background-color: #282c34;
+  border-radius: 50px;
 }
 
 .item-display{
   display: flex;
   justify-content: space-between;
+}
+
+.item{
+  height: 300px;
+  width: 300px;
+  border: 2px solid #282c34;
+  border-radius:30px;
+  background: rgb(133, 238, 233);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
