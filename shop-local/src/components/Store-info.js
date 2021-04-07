@@ -1,16 +1,27 @@
 import "../App.css"
 
-const StoreInfo = ({ name, address, description, openTime, closeTime, phoneNumber, instagram, facebook }) => {
+
+// const StoreInfo = ({ name, address, description, openTime, closeTime, phoneNumber, instagram, facebook }) => {
+//     if (!name) return <div />;
+//     return (
+//         <div className='store-container'>
+//             <h2 className='store-name'>{name}</h2>
+//             <h3 className='store-info'>{address}</h3>
+//             <p className='store-info'>{description}</p>
+//             <p className='store-info'>{openTime}-{closeTime}</p>
+//             <p className='store-info'>Phone Number:{phoneNumber}</p>
+//             <a className='store-info' href={instagram}>Instagram</a>
+//             <a className='store-info' href={facebook}>Facebook</a>
+//         </div>
+//     )
+// }
+
+function StoreInfo({ match }) {
+
+    console.log(match)
+
     return (
-        <div className='store-info'>
-            <h2>{name}</h2>
-            <h3>{address}</h3>
-            <p>{description}</p>
-            <p>{openTime}-{closeTime}</p>
-            <p>Phone Number:{phoneNumber}</p>
-            <a href={instagram}>Instagram</a>
-            <a href={facebook}>Facebook</a>
-        </div>
+        <h1>SSSS</h1>
     )
 }
 

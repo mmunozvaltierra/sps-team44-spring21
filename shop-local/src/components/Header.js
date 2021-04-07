@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+
 import "../App.css"
 import logo from '../shop-local-logo.png'
 
