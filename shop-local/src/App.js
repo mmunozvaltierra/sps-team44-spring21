@@ -17,12 +17,6 @@ import StoreInfo from './components/Store-info'
 
 function App() {
 
-  //   // Example of requesting a store
-  // const store = fetch("/get-store?storeName=test1")
-  //   .then(response => {
-  //     console.log(response);
-  //   });
-
   useEffect(() => {
     fetchItems()
   }, []);
