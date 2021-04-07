@@ -20,12 +20,6 @@ const Home = () => {
             </div>
 
             <h2>Stores:</h2>
-            <ul className='list-store'>
-                <Link className='nav-style' to='/store'>
-                    <li>Dona Antonia</li>
-                </Link>
-            </ul>
-
 
         </div>
     )
