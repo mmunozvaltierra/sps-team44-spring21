@@ -55,7 +55,27 @@ function getStore(storeName) {
             setResponse(result[0]);
         });
 }
-/** Helper function for getStore(storeName)
+
+/* Function to get all store information as an array of JSON objects */
+function getAllStores() {
+    var sql = "SELECT * FROM stores";
+    var query = connection.query(sql, function(err, result) {
+            if (err) throw err;
+            setResponse(result);
+        });
+}
+
+/* Function to get store information by ID as JSON object */
+function getStoreByID(storeId) {
+    var sql = "SELECT * FROM stores WHERE storeId = ?";
+    var query = connection.query(sql, [storeId], function(err, result) {
+            if (err) throw err;
+            //Only returns first result
+            setResponse(result[0]);
+        });
+}
+
+/** Helper function for SQL query functions
  * @param {JSON} response - JSON object from getStore query response
  */
 function setResponse(response) {
@@ -63,11 +83,25 @@ function setResponse(response) {
 }
 
 /**
- * Handler for store information requests
+ * Handlers for store information requests
  * @param req - expectation of a store name to be passed as storeName
  */
 app.get("/get-store", (req, res) => {
     getStore(req.query.storeName);
+    res.json(jsonResponse);
+  });
+
+/** Route to list all stores */
+ app.get("/list-stores", (req, res) => {
+   getAllStores();
+   res.json(jsonResponse);
+ });
+
+ /** Route to get store by ID
+  *  @param storeId - expects an integer value to be passed into query
+  */
+ app.get("/get-store-id", (req, res) => {
+    getStoreByID(req.query.storeId);
     res.json(jsonResponse);
   });
 
