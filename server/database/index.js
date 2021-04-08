@@ -55,7 +55,18 @@ function getStore(storeName) {
             setResponse(result[0]);
         });
 }
-/** Helper function for getStore(storeName)
+
+/* Function to get all store information as an array of JSON objects */
+function getAllStores() {
+    var sql = "SELECT * FROM stores";
+    var query = connection.query(sql, function(err, result) {
+            if (err) throw err;
+            //.console.log(result);
+            setResponse(result);
+        });
+}
+
+/** Helper function for SQL query functions
  * @param {JSON} response - JSON object from getStore query response
  */
 function setResponse(response) {
@@ -63,11 +74,16 @@ function setResponse(response) {
 }
 
 /**
- * Handler for store information requests
+ * Handlers for store information requests
  * @param req - expectation of a store name to be passed as storeName
  */
 app.get("/get-store", (req, res) => {
     getStore(req.query.storeName);
+    res.json(jsonResponse);
+  });
+
+  app.get("/list-stores", (req, res) => {
+    getAllStores();
     res.json(jsonResponse);
   });
 
