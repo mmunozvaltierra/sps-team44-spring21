@@ -22,7 +22,7 @@ function App() {
   }, []);
 
   const fetchItems = async () => {
-    const data = await fetch("http://localhost:3001/get-store?storeName=test1");
+    const data = await fetch("/get-store?storeName=test1", {mode: 'no-cors'});
     //const data = await fetch('https://pokeapi.co/api/v2/pokemon/ditto')
     const items = await data.json();
     console.log(items);
