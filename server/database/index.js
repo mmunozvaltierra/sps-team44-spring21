@@ -70,6 +70,7 @@ function getAllStores() {
     return res;
 }
 
+
 /* Function to get store information by ID as JSON object */
 async function getStoreByID(storeId) {
     var sql = "SELECT * FROM stores WHERE storeId = ?";
@@ -80,6 +81,7 @@ async function getStoreByID(storeId) {
     // });
     let res = await connection.query(sql, [storeId]);
     setResponse(res[0]);
+
 }
 
 /** Helper function for SQL query functions
@@ -128,6 +130,20 @@ app.get("/get-store-id", (req, res) => {
     });
 
 });
+
+/** Route to list all stores */
+ app.get("/list-stores", (req, res) => {
+   getAllStores();
+   res.json(jsonResponse);
+ });
+
+ /** Route to get store by ID
+  *  @param storeId - expects an integer value to be passed into query
+  */
+ app.get("/get-store-id", (req, res) => {
+    getStoreByID(req.query.storeId);
+    res.json(jsonResponse);
+  });
 
 /**
  * Creates NodeJS server on port 3001
