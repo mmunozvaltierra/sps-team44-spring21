@@ -72,6 +72,7 @@
 .nav-style{
   color: white;
   list-style: none;
+
 }
 
 .store-container{
@@ -114,5 +115,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.store-list{
+
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }

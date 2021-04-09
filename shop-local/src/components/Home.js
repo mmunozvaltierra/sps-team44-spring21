@@ -1,6 +1,7 @@
 import React from 'react'
 import "../App.css"
 import { Link } from 'react-router-dom'
+import Stores from './Stores'
 
 const Home = () => {
 
@@ -19,7 +20,7 @@ const Home = () => {
                 </p>
             </div>
 
-            <h2>Stores:</h2>
+            <Stores />
 
         </div>
     )
