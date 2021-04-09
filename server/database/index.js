@@ -47,42 +47,6 @@ function insertStore(storeName, storeAddress, description, openTime, closeTime,
     });
 }
 
-/* Function to get store information as JSON object */
-async function getStore(storeName) {
-    var sql = "SELECT * FROM stores WHERE name = ?";
-    // var query = connection.query(sql, [storeName], function (err, result) {
-    //     if (err) throw err;
-    //     setResponse(result[0]);
-    // });
-    let res = await connection.query(sql, [storeName]);
-    setResponse(res[0]);
-}
-
-/* Function to get all store information as an array of JSON objects */
-function getAllStores() {
-    var sql = "SELECT * FROM stores";
-    // var query = connection.query(sql, function (err, result) {
-    //     if (err) throw err;
-    //     setResponse(result);
-    // });
-
-    let res = connection.query(sql);
-    return res;
-}
-
-
-/* Function to get store information by ID as JSON object */
-async function getStoreByID(storeId) {
-    var sql = "SELECT * FROM stores WHERE storeId = ?";
-    // var query = connection.query(sql, [storeId], function (err, result) {
-    //     if (err) throw err;
-    //     //Only returns first result
-    //     setResponse(result[0]);
-    // });
-    let res = await connection.query(sql, [storeId]);
-    setResponse(res[0]);
-
-}
 
 /** Helper function for SQL query functions
  * @param {JSON} response - JSON object from getStore query response
@@ -114,8 +78,6 @@ app.get("/list-stores", (req, res) => {
         res.json(result);
     });
 
-    //console.log(jsonResponse)
-    //res.json(jsonResponse);
 });
 
 /** Route to get store by ID
@@ -131,19 +93,6 @@ app.get("/get-store-id", (req, res) => {
 
 });
 
-/** Route to list all stores */
- app.get("/list-stores", (req, res) => {
-   getAllStores();
-   res.json(jsonResponse);
- });
-
- /** Route to get store by ID
-  *  @param storeId - expects an integer value to be passed into query
-  */
- app.get("/get-store-id", (req, res) => {
-    getStoreByID(req.query.storeId);
-    res.json(jsonResponse);
-  });
 
 /**
  * Creates NodeJS server on port 3001
