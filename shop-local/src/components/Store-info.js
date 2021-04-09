@@ -1,28 +1,36 @@
 import "../App.css"
+import React, { useState, useEffect } from 'react';
 
 
-// const StoreInfo = ({ name, address, description, openTime, closeTime, phoneNumber, instagram, facebook }) => {
-//     if (!name) return <div />;
-//     return (
-//         <div className='store-container'>
-//             <h2 className='store-name'>{name}</h2>
-//             <h3 className='store-info'>{address}</h3>
-//             <p className='store-info'>{description}</p>
-//             <p className='store-info'>{openTime}-{closeTime}</p>
-//             <p className='store-info'>Phone Number:{phoneNumber}</p>
-//             <a className='store-info' href={instagram}>Instagram</a>
-//             <a className='store-info' href={facebook}>Facebook</a>
-//         </div>
-//     )
-// }
+function Store({ match }) {
 
-function StoreInfo({ match }) {
+    const [context, setContext] = useState({ 'store': {}, 'stores': [] });
 
-    console.log(match)
+    const fetchStore = async () => {
+        const fetchStore = await fetch(`/get-store-id?storeId=${match.params.storeId}`, { mode: 'no-cors' })
+        const store = await fetchStore.json();
+        setContext({ 'store': store })
+        console.log(context['store']);
+    };
+
+    useEffect(() => {
+        fetchStore();
+    }, []);
+
+
 
     return (
-        <h1>SSSS</h1>
-    )
-}
+        <div className='store-container'>
+            <h2 className='store-name'>{context['store'].name}</h2>
+            <h3 className='store-info'>{context['store'].address}</h3>
+            <p className='store-info'>{context['store'].description}</p>
+            <p className='store-info'>{context['store'].openTime}-{context['store'].closeTime}</p>
+            <p className='store-info'>Phone Number:{context['store'].phoneNumber}</p>
+            <a className='store-info' href={context['store'].instagram}>Instagram</a>
+            <a className='store-info' href={context['store'].facebook}>Facebook</a>
+        </div>
+    );
+};
+export default Store;
 
-export default StoreInfo;
+

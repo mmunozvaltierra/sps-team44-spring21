@@ -4,41 +4,31 @@
 // fetch("/get-store?storeName=${name}")
 //  .then(response => console.log(response.name));
 import './App.css';
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import NavBar from './components/NavBar'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Stores from './components/Stores'
 import Home from './components/Home';
-import StoreInfo from './components/Store-info'
+import Store from './components/Store-info'
 
 
 
 
 function App() {
 
-  useEffect(() => {
-    fetchItems()
-  }, []);
-
-  const fetchItems = async () => {
-    const data = await fetch("/get-store?storeName=test1", {mode: 'no-cors'});
-    //const data = await fetch('https://pokeapi.co/api/v2/pokemon/ditto')
-    const items = await data.json();
-    console.log(items);
-  }
-
-
+  const [context, setContext] = useState({})
 
   return (
 
     <Router>
       <div className="container">
         <NavBar />
+
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/stores' exact component={Stores} />
-          <Route path='/stores/:id' component={StoreInfo} />
+          <Route path='/stores/:storeId' component={Store} />
 
         </Switch>
 
