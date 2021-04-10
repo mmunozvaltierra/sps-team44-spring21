@@ -1,4 +1,11 @@
 runtime: nodejs
 
+handlers:
+  - url: /
+    static_files: shop-local/build/index.html
+    upload: shop-local/build/index.html
+  - url: /
+    static_dir: shop-local/build
+
 env_variables:
   PORT: 8080
