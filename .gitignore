@@ -10,10 +10,10 @@ shop-local/node_modules
 /coverage
 
 # production
-/build
+shop-local/build
 
 # misc
-server/.env
+.env
 .DS_Store
 .env.local
 .env.development.local

@@ -97,8 +97,8 @@ app.get("/get-store-id", (req, res) => {
 });
 
 // All other GET requests not handled before will return index.html
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '/shop-local/build', 'index.html'));
+app.get('/*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '/shop-local/build/index.html'));
   });
 
 
