@@ -16,6 +16,9 @@ function NavBar() {
                 <Link className='nav-style' to='/stores' >
                     <li>Stores</li>
                 </Link >
+                <Link className='nav-style' to='/new-store-form' >
+                    <li>Insert New Store</li>
+                </Link >
 
             </ul>
         </nav>
