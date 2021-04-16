@@ -2,18 +2,22 @@ require("dotenv").config();
 
 const express = require("express");
 const mysql = require('mysql');
+const path = require('path');
 
 const PORT = process.env.PORT || 3001;
 
 const app = express();
 let jsonResponse = null;
 
+app.use(express.static(path.resolve(__dirname, '/shop-local/build')));
+
 //Configure connection
 let connection = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
-    database: process.env.DB_DATABASE
+    database: process.env.DB_DATABASE,
+    socketPath: process.env.DB_INSTANCE_NAME
 });
 
 //Create connection
@@ -92,6 +96,11 @@ app.get("/get-store-id", (req, res) => {
     });
 
 });
+
+// All other GET requests not handled before will return index.html
+app.get('/*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '/shop-local/build/index.html'));
+  });
 
 
 /**

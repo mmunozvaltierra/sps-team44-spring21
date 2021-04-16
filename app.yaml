@@ -1,0 +1,17 @@
+runtime: nodejs14
+
+handlers:
+  - url: /get-store
+    script: auto
+  - url: /list-stores
+    script: auto
+  - url: /get-store-id
+    script: auto
+
+env_variables:
+  PORT: 8080
+  DB_HOST:
+  DB_DATABASE: shoplocal
+  DB_USER: demo
+  DB_PASS:
+  DB_INSTANCE_NAME:  /cloudsql/mmunozvaltierra-sps-spring21:us-central1:shop-local
