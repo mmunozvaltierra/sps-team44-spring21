@@ -1,70 +1,86 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import "./NewStore.css"
+import storePic from "./shop.png"
 
 
 function NewStore() {
 
     return (
+      <body>
+      <img id="shop-photo" src={storePic} alt="Store Picture" />
+
+      <div id="submission-form-container">
         <form>
-          <h1>Insert New Store</h1>
-          <p>Store information entered here will be displayed on the <Link to='/'>home </Link> page </p>
-          <label>
-              Store Name:
-          <input
-            type="text"
-          />
-          </label>
-          <label>
-              Store Address:
-          <input
-            type="text"
-          />
-          </label>
+          <h1 id="submission-title">New Store Information</h1>
+          <p id="submission-text">Store information entered here will be displayed on the <Link to='/'>home</Link> page </p>
 
-          <label>
-              Description:
           <input
+            id="store-name-input"
+            className="input-area"
             type="text"
+            placeholder="Store Name"
           />
-          </label>
-
-          <label>
-              Opening Time:
+         
           <input
+            id="address-input"
+            className="input-area"
             type="text"
+            placeholder="Store Address"
           />
-          </label>
-
-          <label>
-              Closing Time:
+    
           <input
+            id="open-time-input"
+            className="input-area"
             type="text"
+            placeholder="Opening Time"
           />
-          </label>
-
-          <label>
-              Phone Number:
+          
           <input
+            id="close-time-input"
+            className="input-area"
             type="text"
+            placeholder="Closing Time"
           />
-          </label>
+          
 
-          <label>
-              Instagram Link:
+          
           <input
+            id="phone-number-input"
+            className="input-area"
             type="text"
+            placeholder="Phone Number"
           />
-          </label>
+          
 
-          <label>
-              Facebook Link:
           <input
+            id="instagram-input"
+            className="input-area"
             type="text"
+            placeholder="Instagram Link"
           />
-          </label>
+          
 
-          <input type="submit" value="submit"></input>
+          <input
+            id="facebook-input"
+            className="input-area"
+            type="text"
+            placeholder="Facebook Link"
+          />
+
+          <textarea 
+            rows="20" 
+            cols="75"
+            id="description-input"
+            className="input-area"
+            placeholder="Store Description"
+          />
+          
+
+          <input id="submit-button" type="submit" value="Submit"></input>
         </form>
+        </div>
+        </body>
       );
 }
 export default NewStore;
