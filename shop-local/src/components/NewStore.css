@@ -8,7 +8,7 @@ body {
     position: absolute;
     width: 663px;
     height: 775px;
-    left: 663px;
+    left: 50%;
     top: 214px;
 
     background: #F5F5F5;
@@ -172,10 +172,12 @@ body {
     width: 537px;
 
 }
+
+/*Store Image*/
 #shop-photo {
     position: absolute;
-    width: 437px;
-    height: 428px;
-    left: 107px;
+    max-width: 100%;
+    height: auto;
+    left: 10%;
     top: 350px;
 }
