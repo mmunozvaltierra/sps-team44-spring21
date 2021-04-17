@@ -2,6 +2,7 @@ import React, { useState, useEffect, Component } from 'react';
 import { Link } from 'react-router-dom';
 import "./NewStore.css"
 import storePic from "./shop.png"
+const axios = require('axios')
 
 class NewStore extends React.Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class NewStore extends React.Component {
     this.state = {
       name: '',
       phone: '',
-      desc: '',
+      description: '',
       address: '',
       openTime: '',
       closeTime: '',
@@ -19,18 +20,25 @@ class NewStore extends React.Component {
   }
 
   myChangeHandler = (event) => {
-    let nam = event.target.name;
-    let val = event.target.value;
-    this.setState({[nam]: val});
+    this.setState({[event.target.name]: event.target.value});
   }
 
   submitHandler = (event) => {
-    alert(this.state.name)
+    event.preventDefault()
+    console.log(this.state)
+    fetch('/insert-store', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(this.state),
+    })
   }
 
   render() {
+    const {name, phone, description, address, openTime, closeTime, instagram, facebook} = this.state
     return (
-      <body>
+      <div id="page-body">
       <img id="shop-photo" src={storePic} alt="Store Picture" />
 
       <div id="submission-form-container">
@@ -44,6 +52,7 @@ class NewStore extends React.Component {
             type="text"
             placeholder="Store Name"
             name='name'
+            value={name}
             onChange={this.myChangeHandler}
           />
          
@@ -53,6 +62,7 @@ class NewStore extends React.Component {
             type="text"
             placeholder="Store Address"
             name='address'
+            value={address}
             onChange={this.myChangeHandler}
           />
     
@@ -62,6 +72,7 @@ class NewStore extends React.Component {
             type="text"
             placeholder="Opening Time"
             name='openTime'
+            value={openTime}
             onChange={this.myChangeHandler}
           />
           
@@ -71,6 +82,7 @@ class NewStore extends React.Component {
             type="text"
             placeholder="Closing Time"
             name='closeTime'
+            value={closeTime}
             onChange={this.myChangeHandler}
           />
           
@@ -80,6 +92,7 @@ class NewStore extends React.Component {
             type="text"
             placeholder="Phone Number"
             name='phone'
+            value={phone}
             onChange={this.myChangeHandler}
           />
           
@@ -90,6 +103,7 @@ class NewStore extends React.Component {
             type="text"
             placeholder="Instagram Link"
             name='instagram'
+            value={instagram}
             onChange={this.myChangeHandler}
           />
           
@@ -100,6 +114,7 @@ class NewStore extends React.Component {
             type="text"
             placeholder="Facebook Link"
             name='facebook'
+            value={facebook}
             onChange={this.myChangeHandler}
           />
 
@@ -110,6 +125,7 @@ class NewStore extends React.Component {
             className="input-area"
             placeholder="Store Description"
             name='description'
+            value={description}
             onChange={this.myChangeHandler}
           />
           
@@ -117,7 +133,7 @@ class NewStore extends React.Component {
           <input id="submit-button" type="submit" value="Submit"></input>
         </form>
         </div>
-        </body>
+        </div>
       );
   }
 }

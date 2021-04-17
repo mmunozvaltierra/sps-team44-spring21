@@ -3,11 +3,12 @@ require("dotenv").config();
 const express = require("express");
 const mysql = require('mysql');
 const path = require('path');
-
 const PORT = process.env.PORT || 3001;
 
 const app = express();
 let jsonResponse = null;
+
+app.use(express.json())
 
 app.use(express.static(path.resolve(__dirname, '/shop-local/build')));
 
@@ -16,8 +17,8 @@ let connection = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
-    database: process.env.DB_DATABASE,
-    socketPath: process.env.DB_INSTANCE_NAME
+    database: process.env.DB_DATABASE
+    //socketPath: process.env.DB_INSTANCE_NAME
 });
 
 //Create connection
@@ -59,6 +60,11 @@ function setResponse(response) {
 
     jsonResponse = response;
 }
+
+// POST method route
+app.post('/insert-store', function (req, res) {
+    insertStore(req.body.name, req.body.address, req.body.description, req.body.openTime, req.body.closeTime, req.body.phone, req.body.instagram, req.body.facebook);
+  })
 
 /**
  * Handlers for store information requests
