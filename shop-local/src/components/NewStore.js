@@ -18,11 +18,11 @@ class NewStore extends React.Component {
       facebook: ''
     };
   }
-
+  // Changes state value on input
   myChangeHandler = (event) => {
     this.setState({[event.target.name]: event.target.value});
   }
-
+  // Calls insert-store on submission
   submitHandler = (event) => {
     console.log(this.state)
     fetch('/insert-store', {
