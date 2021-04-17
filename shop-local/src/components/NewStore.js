@@ -24,7 +24,6 @@ class NewStore extends React.Component {
   }
 
   submitHandler = (event) => {
-    event.preventDefault()
     console.log(this.state)
     fetch('/insert-store', {
       method: 'POST',
@@ -33,6 +32,7 @@ class NewStore extends React.Component {
       },
       body: JSON.stringify(this.state),
     })
+    alert(`${this.state.name} has been added to our store list. It can be found at the home page.`)
   }
 
   render() {
