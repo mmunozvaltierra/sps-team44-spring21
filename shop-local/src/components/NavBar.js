@@ -1,12 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../shop-local-logo.png'
+import SearchStore from './SearchStore'
 
 
 function NavBar() {
     return (
         <nav className='header'>
             <img src={logo} alt="logo" />
+
+            <SearchStore />
 
             <ul className='nav-links'>
 
