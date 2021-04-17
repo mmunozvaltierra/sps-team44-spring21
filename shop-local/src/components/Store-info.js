@@ -25,7 +25,7 @@ function Store({ match }) {
             <h3 className='store-info'>{context['store'].address}</h3>
             <p className='store-info'>{context['store'].description}</p>
             <p className='store-info'>{context['store'].openTime}-{context['store'].closeTime}</p>
-            <p className='store-info'>Phone Number:{context['store'].phoneNumber}</p>
+            <p className='store-info'>Phone Number:{context['store'].phone}</p>
             <a className='store-info' href={context['store'].instagram}>Instagram</a>
             <a className='store-info' href={context['store'].facebook}>Facebook</a>
         </div>
