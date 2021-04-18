@@ -7,6 +7,8 @@ handlers:
     script: auto
   - url: /get-store-id
     script: auto
+  -url: /insert-store
+    script: auto
 
 env_variables:
   PORT: 8080
