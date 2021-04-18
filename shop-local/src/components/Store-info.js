@@ -21,11 +21,13 @@ function Store({ match }) {
 
     return (
         <div className='store-container'>
+
             <h2 className='store-name'>{context['store'].name}</h2>
+            <h2 className='store-name'>Shop Local ID: {context['store'].storeId}</h2>
             <h3 className='store-info'>{context['store'].address}</h3>
             <p className='store-info'>{context['store'].description}</p>
             <p className='store-info'>{context['store'].openTime}-{context['store'].closeTime}</p>
-            <p className='store-info'>Phone Number:{context['store'].phoneNumber}</p>
+            <p className='store-info'>Phone Number:{context['store'].phone}</p>
             <a className='store-info' href={context['store'].instagram}>Instagram</a>
             <a className='store-info' href={context['store'].facebook}>Facebook</a>
         </div>

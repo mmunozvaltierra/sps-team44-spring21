@@ -30,6 +30,7 @@ function App() {
           <Route path='/' exact component={Home} />
           <Route path='/stores' exact component={Stores} />
           <Route path='/stores/:storeId' component={Store} />
+          create-store-form
           <Route path='/new-store-form' component={NewStore} />
 
         </Switch>
